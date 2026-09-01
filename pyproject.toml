@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "ddp-scaling-anatomy"
+version = "0.1.0"
+description = "PyTorch DDP strong-scaling, NCCL profiling, and communication-optimization study on NVIDIA V100 GPUs."
+readme = "README.md"
+requires-python = ">=3.10"
+
+authors = [
+    { name = "Siddharth Pal" }
+]
+
+keywords = [
+    "pytorch",
+    "distributed-training",
+    "ddp",
+    "nccl",
+    "cuda",
+    "slurm",
+    "multi-gpu",
+    "profiling",
+    "machine-learning-systems",
+    "high-performance-computing",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
