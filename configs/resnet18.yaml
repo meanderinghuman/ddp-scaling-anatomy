@@ -1,0 +1,22 @@
+workload: resnet18
+
+seed: 42
+
+epochs: 5
+# total batch size for train job
+# one gpu -> local batch = global batch=256
+global_batch_size: 256
+num_workers: 4
+
+optimizer: sgd
+learning_rate: 0.1
+momentum: 0.9
+weight_decay: 0.0005
+
+amp: true
+
+num_classes: 100
+
+# ignore first few batches when measuring throughput 
+# cuda kernal , memory allocation have startu overhead.
+timing_warmup_batches: 5
