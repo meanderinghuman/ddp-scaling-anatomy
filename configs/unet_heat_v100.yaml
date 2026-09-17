@@ -1,0 +1,25 @@
+workload: unet_heat
+
+seed: 42
+
+epochs: 5
+
+# Fixed global batch for future 1/2/4-GPU comparison.
+#
+# 1 GPU -> 16/GPU
+# 2 GPU ->  8/GPU
+# 4 GPU ->  4/GPU
+global_batch_size: 16
+
+num_workers: 4
+
+optimizer: adamw
+learning_rate: 0.001
+weight_decay: 0.0001
+
+amp: true
+amp_dtype: fp16
+
+base_channels: 64
+
+timing_warmup_batches: 5
