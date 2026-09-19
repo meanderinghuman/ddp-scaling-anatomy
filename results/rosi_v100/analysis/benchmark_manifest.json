@@ -1,0 +1,27 @@
+{
+  "benchmark_name": "ROSI V100 single-node DDP strong scaling",
+  "hardware": "NVIDIA Tesla V100-SXM2-32GB",
+  "world_sizes": [
+    1,
+    2,
+    4
+  ],
+  "backend": "NCCL",
+  "precision": "FP16 AMP + GradScaler",
+  "strong_scaling": true,
+  "steady_state_policy": "Epoch 1 excluded from primary performance statistics.",
+  "speedup": "S_N = Q_N / Q_1",
+  "efficiency": "E_N = S_N / N * 100%",
+  "workloads": {
+    "resnet18": "ResNet18 / CIFAR-100",
+    "unet_heat": "U-Net / Heat2D"
+  },
+  "raw_files": [
+    "resnet18_ddp_cuda_nccl_world1_full.json",
+    "resnet18_ddp_cuda_nccl_world2_full.json",
+    "resnet18_ddp_cuda_nccl_world4_full.json",
+    "unet_heat_ddp_cuda_nccl_world1_full.json",
+    "unet_heat_ddp_cuda_nccl_world2_full.json",
+    "unet_heat_ddp_cuda_nccl_world4_full.json"
+  ]
+}
