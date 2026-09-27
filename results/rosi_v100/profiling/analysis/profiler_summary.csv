@@ -1,0 +1,5 @@
+tag,workload,workload_label,world_size,global_batch_size,local_batch_size,benchmark_throughput,benchmark_step_time_ms,allreduce_calls_per_step_mean,nccl_ms_per_step_min,nccl_ms_per_step_mean,nccl_ms_per_step_max,nccl_ms_per_step_std,rank_imbalance_ratio,max_nccl_residency_to_step_ratio
+resnet_world1,resnet18,ResNet18,1,256,256,8056.890909141155,31.77404322423536,0.0,0.0,0.0,0.0,0.0,,0.0
+resnet_world4,resnet18,ResNet18,4,256,64,13163.485825835169,19.447736214184577,3.0,2.154388400000002,11.810745025000003,19.147225800000005,7.50377293319989,8.887545903979055,0.9845477946186153
+unet_world1,unet_heat,U-Net,1,16,16,1046.1150259099359,15.294685195906462,0.0,0.0,0.0,0.0,0.0,,0.0
+unet_world4,unet_heat,U-Net,4,16,4,992.2624493828997,16.124766194619777,3.0,3.5028819999999934,7.501971799999999,14.828041800000005,5.0400709222913616,4.233097717822077,0.9195818172512517
