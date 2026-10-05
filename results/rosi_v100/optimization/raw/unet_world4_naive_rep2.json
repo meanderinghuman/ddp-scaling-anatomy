@@ -1,0 +1,80 @@
+{
+  "experiment": "gradient_accumulation",
+  "mode": "naive",
+  "workload": "unet_heat",
+  "world_size": 4,
+  "microbatch_size_per_rank": 4,
+  "global_microbatch_size": 16,
+  "accumulation_steps": 4,
+  "effective_global_batch_size": 64,
+  "epochs": 5,
+  "timing_warmup_microbatches": 8,
+  "optimizer_steps_per_epoch": 64,
+  "steady_state_policy": "exclude epoch 1",
+  "steady_state_throughput_samples_per_sec": 1062.5302744555497,
+  "steady_state_throughput_std": 8.25912914096135,
+  "mean_steady_train_wall_time_sec": 3.863294969778508,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.08479460156195273,
+      "val_mse": 0.006440090718115243,
+      "throughput_samples_per_sec": 1054.1476593851153,
+      "measured_train_time_sec": 3.764178542420268,
+      "train_loop_wall_time_sec": 8.48740604892373,
+      "global_measured_examples": 3968,
+      "optimizer_steps": 64,
+      "peak_vram_per_rank_gb": 0.25139904022216797
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.004761491615624891,
+      "val_mse": 0.00352637615878848,
+      "throughput_samples_per_sec": 1056.2285495281076,
+      "measured_train_time_sec": 3.756762683391571,
+      "train_loop_wall_time_sec": 3.8866414930671453,
+      "global_measured_examples": 3968,
+      "optimizer_steps": 64,
+      "peak_vram_per_rank_gb": 0.25146007537841797
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.0036614452321117597,
+      "val_mse": 0.003285223039711127,
+      "throughput_samples_per_sec": 1064.4778370263657,
+      "measured_train_time_sec": 3.727649239823222,
+      "train_loop_wall_time_sec": 3.855034112930298,
+      "global_measured_examples": 3968,
+      "optimizer_steps": 64,
+      "peak_vram_per_rank_gb": 0.25146007537841797
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.00312154145342447,
+      "val_mse": 0.0033586060471861856,
+      "throughput_samples_per_sec": 1073.4152698662986,
+      "measured_train_time_sec": 3.6966122165322304,
+      "train_loop_wall_time_sec": 3.8233590740710497,
+      "global_measured_examples": 3968,
+      "optimizer_steps": 64,
+      "peak_vram_per_rank_gb": 0.25146007537841797
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.003216819910448976,
+      "val_mse": 0.004676535026419515,
+      "throughput_samples_per_sec": 1055.9994414014272,
+      "measured_train_time_sec": 3.757577745243907,
+      "train_loop_wall_time_sec": 3.888145199045539,
+      "global_measured_examples": 3968,
+      "optimizer_steps": 64,
+      "peak_vram_per_rank_gb": 0.25146007537841797
+    }
+  ],
+  "hostname": "gv007",
+  "device": "Tesla V100-SXM2-32GB",
+  "pytorch_version": "2.10.0+cu128",
+  "cuda_version": "12.8",
+  "amp": true,
+  "amp_dtype": "fp16"
+}
