@@ -1,0 +1,85 @@
+name: CPU smoke tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install -e .
+
+      - name: Compile Python sources
+        run: |
+          python -m compileall src scripts
+
+      - name: Import package
+        run: |
+          python - <<'PY'
+          import ddp_lab
+          from ddp_lab.models.resnet import build_resnet18_cifar
+          from ddp_lab.models.unet import HeatUNet
+
+          print("ddp_lab import: OK")
+          print("ResNet import: OK")
+          print("U-Net import: OK")
+          PY
+
+      - name: ResNet forward/backward smoke test
+        run: |
+          python scripts/02_test_resnet.py
+
+      - name: U-Net synthetic forward/backward smoke test
+        run: |
+          python - <<'PY'
+          import torch
+          from ddp_lab.models.unet import HeatUNet
+
+          torch.manual_seed(42)
+
+          model = HeatUNet(
+              in_channels=1,
+              out_channels=1,
+              base_channels=64,
+          )
+
+          x = torch.randn(2, 1, 64, 64)
+          target = torch.randn(2, 1, 64, 64)
+
+          pred = model(x)
+
+          assert pred.shape == target.shape
+          assert torch.isfinite(pred).all()
+
+          loss = torch.nn.functional.mse_loss(pred, target)
+          assert torch.isfinite(loss)
+
+          loss.backward()
+
+          grads = [
+              parameter.grad
+              for parameter in model.parameters()
+              if parameter.grad is not None
+          ]
+
+          assert grads
+          assert all(torch.isfinite(g).all() for g in grads)
+
+          print("U-Net CPU forward/backward: PASSED")
+          PY
