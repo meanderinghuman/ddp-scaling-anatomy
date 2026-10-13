@@ -934,7 +934,7 @@ Current limitations include:
 - no FSDP or DeepSpeed comparison,
 - no large-language-model training.
 
-These are deliberate scope boundaries rather than requirements for the current study.
+These are deliberate scope boundaries, not shortcomings of the current study.
 
 ---
 
