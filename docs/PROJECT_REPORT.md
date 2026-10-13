@@ -1,4 +1,6 @@
-# PyTorch DDP Scaling Lab — Detailed Project Report
+# DDP Scaling Anatomy — Detailed Project Report
+
+**Author:** [meanderinghuman](https://github.com/meanderinghuman) · **Repository:** [ddp-scaling-anatomy](https://github.com/meanderinghuman/ddp-scaling-anatomy)
 
 A hands-on systems study of **PyTorch DistributedDataParallel (DDP)**, **NCCL communication**, strong scaling, profiling, and communication-aware optimization on NVIDIA V100 GPUs.
 
@@ -581,7 +583,7 @@ use DDP.no_sync()
 # 10. Repository Structure
 
 ```text
-pytorch-ddp-scaling-lab/
+ddp-scaling-anatomy/
 │
 ├── configs/
 │   ├── resnet18.yaml
