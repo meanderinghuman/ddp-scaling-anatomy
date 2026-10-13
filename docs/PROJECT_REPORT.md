@@ -82,7 +82,7 @@ Each process:
 
 Conceptually:
 
-![CPU vs GPU and DDP](results/figures/cpu_vs_gpu_training_ddp_explained.png)
+![CPU vs GPU and DDP](../results/figures/cpu_vs_gpu_training_ddp_explained.png)
 
 The distributed stack used in this project is:
 
@@ -205,7 +205,7 @@ The U-Net uses **GroupNorm** rather than BatchNorm so that normalization statist
 
 Example Heat2D samples:
 
-![Heat2D examples](results/figures/heat2d_examples.png)
+![Heat2D examples](../results/figures/heat2d_examples.png)
 
 ---
 
@@ -279,7 +279,7 @@ Each GPU configuration was repeated **three times** to measure runtime variabili
 
 ResNet18 gains substantial throughput at four GPUs, although scaling is far from ideal.
 
-![ResNet repeated throughput](results/rosi_v100/repeated_runs/figures/01_resnet_repeated_throughput.png)
+![ResNet repeated throughput](../results/rosi_v100/repeated_runs/figures/01_resnet_repeated_throughput.png)
 
 ---
 
@@ -295,7 +295,7 @@ The U-Net does **not** benefit from additional GPUs.
 
 Four GPUs are slightly slower than one GPU.
 
-![U-Net repeated throughput](results/rosi_v100/repeated_runs/figures/02_unet_repeated_throughput.png)
+![U-Net repeated throughput](../results/rosi_v100/repeated_runs/figures/02_unet_repeated_throughput.png)
 
 This is the first major result of the project:
 
@@ -350,7 +350,7 @@ Therefore:
 
 The more important quantity is the ratio between communication and useful local computation, including how much communication can overlap the backward pass.
 
-![NCCL activity by rank](results/rosi_v100/profiling/figures/01_nccl_activity_by_rank.png)
+![NCCL activity by rank](../results/rosi_v100/profiling/figures/01_nccl_activity_by_rank.png)
 
 Profiler NCCL kernel residency is treated as a diagnostic quantity only. It is **not interpreted as pure wall-clock communication overhead**, because CUDA computation and NCCL communication can overlap.
 
@@ -391,7 +391,7 @@ $$
 
 There was no meaningful short-run accuracy improvement.
 
-![BatchNorm vs SyncBatchNorm](results/rosi_v100/syncbn/figures/01_batchnorm_vs_syncbn_throughput.png)
+![BatchNorm vs SyncBatchNorm](../results/rosi_v100/syncbn/figures/01_batchnorm_vs_syncbn_throughput.png)
 
 ---
 
@@ -525,7 +525,7 @@ $$
 
 Validation MSE and memory usage remain essentially unchanged.
 
-![Naive accumulation vs no_sync](results/rosi_v100/optimization/figures/01_naive_vs_no_sync_throughput.png)
+![Naive accumulation vs no_sync](../results/rosi_v100/optimization/figures/01_naive_vs_no_sync_throughput.png)
 
 ---
 
