@@ -650,8 +650,8 @@ ddp-scaling-anatomy/
 Clone the repository and install the project.
 
 ```bash
-git clone https://github.com/adiManethia/pytorch-ddp-scaling-lab.git
-cd pytorch-ddp-scaling-lab
+git clone https://github.com/meanderinghuman/ddp-scaling-anatomy.git
+cd ddp-scaling-anatomy
 ```
 
 Create or activate a Python environment with PyTorch installed, then:
