@@ -585,11 +585,18 @@ use DDP.no_sync()
 ```text
 ddp-scaling-anatomy/
 │
+├── .github/
+│   └── workflows/
+│       └── ci.yml
+│
 ├── configs/
 │   ├── resnet18.yaml
 │   ├── resnet18_v100.yaml
 │   ├── unet_heat.yaml
 │   └── unet_heat_v100.yaml
+│
+├── docs/
+│   └── PROJECT_REPORT.md
 │
 ├── results/
 │   ├── figures/
@@ -631,6 +638,7 @@ ddp-scaling-anatomy/
 │
 ├── src/
 │   └── ddp_lab/
+│       ├── data/
 │       ├── models/
 │       ├── training/
 │       └── utils/
@@ -638,6 +646,7 @@ ddp-scaling-anatomy/
 ├── tests/
 │   └── test_data.py
 │
+├── LICENSE
 ├── pyproject.toml
 ├── requirements.txt
 └── README.md
